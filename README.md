@@ -21,14 +21,6 @@ This project is a comprehensive e-commerce web application designed to provide u
 ## Installation
 To set up the project on your local machine (for the purpose of this demo i used AWS VM EC2 instance/ Ubuntu Server 24.04), follow these steps:
 
-### Clone the Repository:
-```bash
-git clone https://github.com/your-username/e-commerce-website.git
-```
-### Navigate to the Project Directory:
-```bash
-cd e-commerce-website
-```
 ### Install Dependencies:
 Ensure you have a **LAMP stack** installed in Windows OS (Linux, Apache, MySQL, PHP) or **XAMPP stack** for linux OS.
 ### Download XAMPP:
@@ -59,12 +51,35 @@ sudo /opt/lampp/lampp start
 ```
 ![image](https://github.com/sterevirgil29/XAMPP---Ecommerce-web-based-application/assets/151761670/9a8c97ef-8f07-40d9-8fa5-d8ea2a1af493)
 
+  ### Clone the Repository (move to the XAMPP root install before cloning the repo):
+```bash
+git clone https://github.com/your-username/XAMPP---Ecommerce-web-based-application.git
+```
+### Navigate to the Project Directory:
+```bash
+cd XAMPP---Ecommerce-web-based-application
+```
 ### Set Up the Database:
+- Allow Phpmyadmin remote access by removig the security feature (for the moment)
+  ```bash
+  cd /opt/lampp/etc/extra$
+  sudo nano httpd-xampp.conf
+  ```
+  - Modify this
+    ```bash
+    <Directory "/opt/lampp/phpmyadmin">
+    AllowOverride AuthConfig Limit
+    Require all granted
+    ErrorDocument 403 /error/XAMPP_FORBIDDEN.html.var
+    </Directory>
+   ``` 
+
 - Create a **MySQL database**.
 - Import the provided SQL file to set up the necessary tables:
   ```bash
   mysql -u username -p database_name < database.sql
   ```
+
   ### Configure the Application:
 Update the database configuration in `lib/connection.php` with your **MySQL credentials**.
 
@@ -74,7 +89,7 @@ Ensure **Apache** is running:
 sudo service apache2 start
 ```
 ### Access the Application:
-Open your web browser and navigate to `http://localhost/e-commerce-website`.
+Open your web browser and navigate to `http://localhost/XAMPP---Ecommerce-web-based-application`.
 
 ## Usage
 - **User Registration and Login**: Users can register and log in to access their profiles.
