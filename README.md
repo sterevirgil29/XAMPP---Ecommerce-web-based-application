@@ -85,6 +85,7 @@ Update the database configuration in `lib/connection.php` with your **MySQL cred
 ### Start the Server:
 Ensure **Apache** is running:
 ```bash
+sudo chown -R www-data:www-data /opt/lampp/htdocs/Ecommerce-web-based-application
 sudo service apache2 start
 ```
 ### Access the Application:
