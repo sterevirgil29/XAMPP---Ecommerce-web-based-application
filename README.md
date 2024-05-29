@@ -72,7 +72,6 @@ cd XAMPP---Ecommerce-web-based-application
     Require all granted
     ErrorDocument 403 /error/XAMPP_FORBIDDEN.html.var
     </Directory>
-   ``` 
 
 - Create a **MySQL database**.
 - Import the provided SQL file to set up the necessary tables:
